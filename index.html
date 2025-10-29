@@ -322,8 +322,8 @@
       font-weight:700; 
       margin-bottom:8px; 
     }
-    .qr-section {
-      margin-top:12px;
+    /* .qr-section {
+      margin-top: 0px;
       padding:12px;
       background:var(--accent);
       border-radius:8px;
@@ -332,7 +332,8 @@
     #invoiceQR {
       margin:8px auto 0;
       display:block;
-    }
+      margin-top: 0px;
+    } */
     hr.sep { 
       border:none; 
       border-top:2px solid #eef2f6; 
@@ -370,7 +371,7 @@
     table.items-table thead th {
       text-align:left; 
       padding:12px 10px; 
-      background:#fbfffb; 
+      background:#cbcfcb; 
       color:var(--muted); 
       border-bottom:2px solid #eef2f6;
       font-weight:700;
@@ -401,16 +402,64 @@
       font-size:14px; 
       color:var(--muted); 
     }
-    .notes { 
-      margin-top:24px; 
-      color:var(--muted); 
-      font-size:14px; 
-      border-top:2px dashed #e6edf0; 
-      padding-top:16px; 
-      line-height:1.6;
-      display: inline-block;
-      margin-right: 130px
-    }
+.invoice-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid #e5e7eb; /* light underline like your screenshot */
+  gap: 30px;
+}
+
+/* Notes Section */
+.notes {
+  font-size: 14px;
+  color: #6b7280;
+  display: flex;
+  flex-direction: column;
+  gap: 6px; /* ⬅ adds a little margin between note points */
+}
+
+.notes strong {
+  display: block;
+  font-weight: 600;
+  color: #4b5563;
+  margin-bottom: 4px;
+}
+
+#previewNotesText {
+  font-size: 14px;
+  color: #4b5563;
+  line-height: 1.5;
+}
+
+/* QR Section */
+.qr-section {
+  background-color: #ecfdf5; /* soft green background */
+  padding: 8px 10px 10px;
+  border-radius: 8px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.qr-label {
+  font-size: 13px;
+  color: #6b7280;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+#invoiceQR {
+  width: 120px;
+  height: 120px;
+  background: url('your-qr-image.png') center/cover no-repeat; /* replace with actual QR */
+  border-radius: 4px;
+}
+
+
     .info-box {
       margin-top:20px;
       padding:16px;
@@ -710,15 +759,23 @@
             <div style="font-size:13px; margin-top:6px;">Authorized Signatory</div>
           </div>
         </div>
-        <div class="notes" id="previewNotes">
-          <strong>Notes:</strong>
-          <div id="previewNotesText">Thank you for choosing Yadav Gardening Services.</div>
-        </div>
-         <div class="qr-section">
-              <div style="font-size:11px; color:var(--muted); margin-bottom:4px; font-weight:600">Scan for Details</div>
-              <div id="invoiceQR"></div>
-            </div>
-      </div>
+       <div class="invoice-footer">
+  <div class="notes" id="previewNotes">
+    <strong>Notes:</strong>
+    <div id="previewNotesText">• Thank you for choosing Yadav Gardening Services.</div>
+    <div id="previewNotesText">• Please review invoice details carefully.</div>
+    <div id="previewNotesText">• Payment due within 7 days of invoice date.</div>
+    <div id="previewNotesText">• For queries, contact us at +91-XXXXXXXXXX.</div>
+  </div>
+
+  <div class="qr-section">
+    <div class="qr-label">Scan for Details</div>
+    <div id="invoiceQR"></div>
+  </div>
+</div>
+
+
+    </div>
     </div>
     
     <!-- Invoice Details -->
@@ -766,6 +823,9 @@
       <h2>⚡ Actions</h2>
       
       <label>Notes (appears at bottom of invoice)</label>
+      <textarea id="notes" rows="3">Thank you for choosing Yadav Gardening Services.</textarea>
+      <textarea id="notes" rows="3">Thank you for choosing Yadav Gardening Services.</textarea>
+      <textarea id="notes" rows="3">Thank you for choosing Yadav Gardening Services.</textarea>
       <textarea id="notes" rows="3">Thank you for choosing Yadav Gardening Services.</textarea>
       
       <div class="actions" style="margin-top:20px">
